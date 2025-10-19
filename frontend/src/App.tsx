@@ -108,7 +108,7 @@ function App() {
     if (!map.current || !vehicleData) return
 
     const { longitude, latitude, position_description } = vehicleData.data.location
-    const { speed, ignition, odometer } = vehicleData.data
+    const { speed, ignition } = vehicleData.data
 
     // Check if position has actually changed
     const positionChanged = 
