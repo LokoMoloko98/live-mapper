@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: live-mapper-backend
+    restart: unless-stopped
+    environment:
+      - CARTRACK_API_URL=${CARTRACK_API_URL}
+      - CARTRACK_VEHICLE_ID=${CARTRACK_VEHICLE_ID}
+      - CARTRACK_AUTH_TOKEN=${CARTRACK_AUTH_TOKEN}
+    networks:
+      - live-mapper
+
+  frontend:
+    build: ./frontend
+    container_name: live-mapper-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - live-mapper
+
+networks:
+  live-mapper:
+    driver: bridge
