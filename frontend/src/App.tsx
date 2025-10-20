@@ -122,6 +122,12 @@ function App() {
       if (positionChanged) {
         marker.current.setLngLat([longitude, latitude])
         lastPosition.current = { lng: longitude, lat: latitude }
+        
+        // Auto-center map on vehicle's new position
+        map.current.easeTo({
+          center: [longitude, latitude],
+          duration: 1000, // Smooth 1-second transition
+        })
       }
     } else {
       // Create custom marker element
@@ -165,11 +171,11 @@ function App() {
     }
   }, [vehicleData])
 
-  // Poll for updates every 15 seconds
+  // Poll for updates every 3 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       fetchVehicleData()
-    }, 15000)
+    }, 3000)
 
     return () => clearInterval(interval)
   }, [])

@@ -31,7 +31,7 @@ AUTH_TOKEN = os.getenv("CARTRACK_AUTH_TOKEN", "")
 
 # Simple in-memory cache
 _cache = {"data": None, "timestamp": None}
-CACHE_DURATION = timedelta(seconds=10)  # Cache for 10 seconds
+CACHE_DURATION = timedelta(seconds=2)  # Cache for 2 seconds to match 3s polling
 
 
 @app.get("/")
