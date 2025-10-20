@@ -212,7 +212,7 @@ function App() {
             </div>
             <p><strong>Speed:</strong> {vehicleData.data.speed} km/h</p>
             <p><strong>Updated:</strong> {new Date(vehicleData.data.event_ts).toLocaleString()}</p>
-            <p className="text-xs text-gray-500 mt-2">Auto-updates every 15 seconds</p>
+            <p className="text-xs text-gray-500 mt-2">Auto-updates every 3 seconds • Map auto-centers</p>
           </div>
         )}
       </div>
